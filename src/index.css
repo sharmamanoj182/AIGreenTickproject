@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import "tailwindcss";
+/* Global Styles */
+@layer base {
+  html, body {
+    font-family: var(--font-roboto);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;  
+    font-size: 16px; 
+  }
+}
+@theme {
+  /* Fonts */
+  --font-roboto: "Roboto", sans-serif;
+
+  /* Custom Spacing (Pixels) */
+  --spacing-10: 10px;
+  --spacing-20: 20px;
+  --spacing-40: 40px;
+  --spacing-60: 60px;
+  
+  /* Standard Borders/Radius in PX */
+  --radius-xl: 12px;
+}
