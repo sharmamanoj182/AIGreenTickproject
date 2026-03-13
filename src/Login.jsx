@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import logo from "./assets/aiGreenTick-logo.png";
 import graphic1 from "./assets/graphic1.png";
 import transbg from "./assets/transbg.png";
 import Loginstep1 from './components/Loginstep1';
 import Loginstep2 from './components/Loginstep2';
+import SignupStep from './components/SignupStep';
 
 
-export default function App() {
+const Login = () => {
+  // 'login' | 'forgot' | 'signup' | 'dashboard'
+  const [currentView, setCurrentView] = useState('login');
+ 
   return (
     <div className="flex min-h-screen bg-white text-slate-900">
 
@@ -43,12 +47,28 @@ export default function App() {
         ></div>
 
 
-      {/* <Loginstep1/> */}
-      <Loginstep2/>
+      {currentView === 'login' && (
+        <Loginstep1 
+          onForgot={() => setCurrentView('forgot')} 
+          onSignup={() => setCurrentView('signup')}
+          onLoginSuccess={() => setCurrentView('dashboard')}
+        />
+      )}
+
+     {/* Forgot Password (Step 2) */}
+      {currentView === 'forgot' && (
+        <Loginstep2 onBack={() => setCurrentView('login')} />
+      )}
+
+      {/* Signup Page */}
+      {currentView === 'signup' && (
+        <SignupStep onBack={() => setCurrentView('login')} />
+      )}
        
 
       </div>
 
     </div>
   );
-}
+};
+export default Login;

@@ -3,7 +3,7 @@ import Button from './Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
-const Loginstep2 = () => {
+const Loginstep2 = ({ onBack }) => {
   return (
     <Fragment>
       <div className="w-full max-w-md z-10">
@@ -36,7 +36,7 @@ const Loginstep2 = () => {
         </form>
 
         <div className="mt-8 text-right space-y-2">
-          <a href="#" className="text-sm text-blue-500 hover:text-blue-700 block transition-colors">
+          <a onClick={onBack} href="#" className="text-sm text-blue-500 hover:text-blue-700 block transition-colors">
             <FontAwesomeIcon icon={faArrowLeft} /> Back to Login
           </a>
         </div>

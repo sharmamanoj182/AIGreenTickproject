@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react';
 import Button from './Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
-const Loginstep1 = ({ onForgot, onSignup, onLoginSuccess }) => {
+const SignupStep = ({ onBack }) => {
 
 
 return(
 
   <Fragment>
      <div className="w-full max-w-md z-10">
-          <h2 className="text-[28px] font-medium mb-4 text-black font-roboto">Login to AI Green Tick</h2>
-
+          <h2 className="text-[28px] font-medium mb-4 text-black font-roboto">Create Your Account on AI Green Tick</h2>
+          <p className='mb-4 text-[12px] text-gray' >Fill in the details below to get started with your free forever plan.</p>
           <Button text="Continue With Google" variant="primary"
             icon={
               <div>
@@ -36,16 +36,40 @@ return(
               />
             </div>
 
+             <div className="relative">
+              <input
+                type="text"
+                placeholder="Email"
+                className="w-full border bg-white border-gray-200 rounded-xl px-4 py-4 focus:ring-2 focus:ring-[#11C15B] outline-none transition-all"
+              />
+            </div>
+
+              <div className="relative">
+              <input
+                type="tel"
+                placeholder="Personal Whatsapp No."
+                className="w-full border bg-white border-gray-200 rounded-xl px-4 py-4 focus:ring-2 focus:ring-[#11C15B] outline-none transition-all"
+              />
+            </div>
+
             <div className="relative">
               <input
-                type="password"
+                type="Enter password"
                 placeholder="Password"
                 className="w-full border bg-white border-gray-200 rounded-xl px-4 py-4 focus:ring-2 focus:ring-[#11C15B] outline-none transition-all"
               />
             </div>
 
-           <Button text="Continue" variant="primary"
-            onClick={onLoginSuccess}
+             <div className="relative">
+              <input
+                type="Confirm password"
+                placeholder="Password"
+                className="w-full border bg-white border-gray-200 rounded-xl px-4 py-4 focus:ring-2 focus:ring-[#11C15B] outline-none transition-all"
+              />
+            </div>
+
+           <Button text="Start Your Free Plan" variant="primary"
+            onClick={() => console.log("Google Click")}
              icon2={
               <div>
                <FontAwesomeIcon icon={faArrowRight} />
@@ -55,9 +79,10 @@ return(
           </form>
 
           <div className="mt-8 text-right space-y-2">
-            <a href="#" onClick={onForgot} className="text-sm text-blue-500 hover:text-blue-700 block transition-colors">Forgot Password ?</a>
-            <p className="text-sm text-blue-500">Not a Member Yet ? <a onClick={onSignup} href="#" className="font-bold hover:underline">Signup</a></p>
-          </div>
+                  <a onClick={onBack} href="#" className="text-sm text-blue-500 hover:text-blue-700 block transition-colors">
+                    <FontAwesomeIcon icon={faArrowLeft} /> Already a Member ? Login
+                  </a>
+                </div>
         </div>
   </Fragment>
 
@@ -65,4 +90,4 @@ return(
 );
 };
 
-export default Loginstep1;
+export default SignupStep;
